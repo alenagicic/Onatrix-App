@@ -1,0 +1,54 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+@{
+    var imageMain = Model.Content.Value<MediaWithCrops>("imageTrusted");
+
+    var imageBackground =  Model.Content.Value<MediaWithCrops>("imageDots");
+
+
+        var textHeader = Model.Content.Value("headerBigTrusted").ToString();
+
+        var headerOne = textHeader[0..28];
+
+        var headerTwo = textHeader[28..41];
+
+    
+
+
+    
+}
+
+
+
+
+<div class="trusted-main-container">
+
+    <div class="trusted-container-content" style="background-image:url(@imageBackground.MediaUrl()); background-size:cover">
+
+        <div class="trusted-container-inner-content">
+
+                    <p class="header-underneath-miniheader">@headerOne</p>
+                    <p class="header-underneath-miniheader" style="color:#d9c3a9">@headerTwo</p>
+                
+
+                <p id="trusted-main-content" class="main-content-components">
+                    @Model.Content.Value("mainTextTrusted")
+                </p>
+
+                <button class="hero-button">
+                    @Model.Content.Value("buttonTrusted")
+                </button>
+        </div>
+       
+    </div>
+
+    <div class="trusted-image-container">
+        <img id="trusted-image" src="@imageMain.MediaUrl()"/>
+    </div>
+
+    
+
+
+</div>

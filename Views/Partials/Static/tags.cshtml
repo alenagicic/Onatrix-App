@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+<div class="tag-container">
+
+    <div>
+        <h3 class="header-color">
+
+            Tags
+
+        </h3>
+
+    </div>
+   
+
+    <div class="tag-container-tags">
+    @{
+        
+        List<string> RandomList = 
+        [
+        "Report",
+        "Busines plans",
+        "Insights",
+        "Business",
+        "App",
+        "Project", 
+        "Finance",
+        "Pricing"
+        ];
+
+        foreach (var item in RandomList) {
+        
+            <div class="tag-container-content">
+                <p class="main-content-components tag-container-actual-tags">@item</p>
+            </div>
+
+        }
+
+    }
+    </div>
+
+</div>

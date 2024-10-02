@@ -1,0 +1,84 @@
+﻿@{
+
+    bool.TryParse(TempData["errorName"]?.ToString(), out bool resultName);
+    bool.TryParse(TempData["errorPhone"]?.ToString(), out bool resultPhone);
+    bool.TryParse(TempData["errorEmail"]?.ToString(), out bool resultEmail);
+
+}
+
+
+
+
+@if (TempData["success"] == null)
+{
+
+
+    @using (Html.BeginUmbracoForm("SubmitContactForm", "Form", FormMethod.Post))
+    {
+
+        <div class="about-form-container">
+
+            <div class="about-form-request-header">
+                <p class="about-form-request-header-text">Request a call back</p>
+            </div>
+
+
+            <p style="font-style:italic; margin-left:5%; margin-right:5%" class="main-content-components">
+                Dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                fugiat nulla pariatur excepteur sint occaecat
+            </p>
+
+
+
+            <input class="about-form-button-input-format" type="text" id="name" name="name" placeholder="Name" value="@TempData["name"]">
+            <input class="about-form-button-input-format" type="email" id="email" name="email" placeholder="Email Address" value="@TempData["email"]">
+            <input class="about-form-button-input-format" type="text" id="phone" name="phone" placeholder="Phone" value="@TempData["phone"]">
+
+            <select class="about-form-button-input-format" id="option" name="option">
+
+                <option value="1">Financial consulting</option>
+                <option value="2">Financial consulting</option>
+                <option value="3">Financial consulting</option>
+                <option value="4">Financial consulting</option>
+
+            </select>
+
+            <input onclick="DoSomething()" class="about-form-button-input-format" id="button-submit-about" type="submit" value="Submit">
+
+
+
+            <div style="color:red">
+
+                @if (resultEmail)
+                {
+                    <p class="error-message-contact-form" >Mata in din epost*</p>
+                }
+
+
+                @if (resultPhone)
+                {
+                    <p class="error-message-contact-form" >Mata in ditt telefonnummer*</p>
+                }
+
+                @if (resultName)
+                {
+                    <p class="error-message-contact-form" >Mata in ditt namn*</p>
+                }
+
+            </div>
+
+
+        </div>
+
+    }
+
+}else
+{
+    <div class="about-form-container error-message-contact-form">
+
+        <h2 style="padding-top:2rem;">Form sent!</h2>
+
+    </div>
+}
+
+<script src="~/scripts/ScrollToView.js"></script>

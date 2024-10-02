@@ -1,0 +1,44 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+@{
+
+    var imageSignature = Model.Content.Value<MediaWithCrops>("imageSignature");
+
+}
+
+<div class="about-main-container">
+
+    <div class="about-content-container">
+
+            <div>
+
+                    <p class="beige-mini-header">@Model.Content.Value("smallHeader")</p>
+                    <p class="header-underneath-miniheader">@Model.Content.Value("bigHeader")</p>
+                    <p class="about-cursive-header">@Model.Content.Value("cursiveHeader")</p>
+                    <p class="main-content-components">@Model.Content.Value("mainText")</p>
+
+
+                    <div class="about-image-signature-container">
+
+                        <img id="about-image" src="@imageSignature.MediaUrl()"/>
+
+                    </div>
+
+
+                    <p class="main-content-components">@Model.Content.Value("signatureWritten")</p>            
+                    
+            </div>
+      
+    </div>
+
+
+    <div class="about-form-container-wrapper">
+
+            @await Html.PartialAsync("~/Views/Partials/Forms/aboutForm.cshtml")
+
+    </div>
+
+
+</div>

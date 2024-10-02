@@ -1,0 +1,42 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+
+@{
+
+    var imageBackground = Model.Content.Value<MediaWithCrops>("successImageBackground");
+
+    var imageMain = Model.Content.Value<MediaWithCrops>("successImage");
+
+}
+
+<div class="successtory-main-container-wrapper">
+
+
+    <div class="successtory-main-container" style="background-image:url(@imageBackground.MediaUrl()); background-size:cover;">
+
+        <div class="successtory-header-container">
+
+            <p class="beige-mini-header">@Model.Content.Value("successHeader")</p>
+            <p style="color:whitesmoke" class="header-underneath-miniheader">@Model.Content.Value("successBigHeader")</p>
+
+        </div>
+
+        <div class="successtory-subcontainer-infocontainer">
+
+            @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+
+        </div>
+        
+        <div class="successtory-subcontainer-image">
+            
+            <img id="successtory-image" src="@imageMain.MediaUrl()"/>
+
+        </div>
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/onatrix-alen-agicic-app/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsumbracoDbDSN_C0A4D7E66B",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/umbraco-alen-agicic-server/databases/umbraco-alen-agicic-database",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:umbracoDbDSN"
+    }
+  }
+}

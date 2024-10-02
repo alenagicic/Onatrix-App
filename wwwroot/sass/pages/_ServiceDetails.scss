@@ -1,0 +1,67 @@
+﻿
+
+.service-item-main-container {
+    min-height: 25rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+  
+
+    .service-item-left-column {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #ececec;
+        padding-right:2rem;
+        margin-top:3rem;        
+
+
+        .service-about-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom:1rem;
+            
+
+            #service-img-about {
+                width:100%;
+            }
+        }
+
+        // How can we help is a component with own css file
+    }
+
+    .service-item-right-column {
+        margin-top:3rem;
+        padding-left:2rem;
+        padding-bottom:2rem;
+        
+        
+    }
+
+
+}
+
+
+@media screen and (min-width: 1080px) {
+
+    .service-item-main-container {
+        padding-left:10%;
+        padding-right:10%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+
+    .service-item-main-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .service-item-left-column {
+            padding-right: 0px;
+        }
+
+        .service-item-right-column{
+            padding-left:0px;
+        }
+    }
+}

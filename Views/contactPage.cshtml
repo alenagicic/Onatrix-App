@@ -1,0 +1,144 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+@{
+	
+	Layout = "mainTemplate.cshtml";
+
+	ViewBag.Title = Model.Value("pagetitle");
+
+}
+
+
+
+<div class="breadcrumb-main-container">
+
+    @await Html.PartialAsync("~/Views/Partials/Static/breadcrumb.cshtml")
+
+</div>
+
+
+<div>
+	
+	@await Html.PartialAsync("~/Views/Partials/Static/letUsKnowPartial.cshtml")
+
+</div>
+
+
+@{
+	var backgroundImage = Model.Value<MediaWithCrops>("backgroundImageContainer");
+}
+
+
+<div class="contact-page-wrapper">
+
+	<div class="contact-page-overlay">
+
+		<div class="contact-page-image" style="background-image: url(@backgroundImage.MediaUrl()); background-size: cover;">
+
+			<div class="contact-page-form">
+
+				<div class="contact-page-form-header">
+
+					<p class="beige-mini-header">@Model.Value("smallHeader")</p>
+					<p class="header-underneath-miniheader">@Model.Value("bigHeader")</p>
+					<i>@Model.Value("generalText")</i>
+
+				</div>
+
+
+
+				@{
+
+					bool.TryParse(TempData["errorName"]?.ToString(), out bool resultName);
+					bool.TryParse(TempData["errorPhone"]?.ToString(), out bool resultPhone);
+					bool.TryParse(TempData["errorEmail"]?.ToString(), out bool resultEmail);
+
+				}
+
+
+
+				@if(TempData["success"] == null)
+				{
+					@using (Html.BeginUmbracoForm("SubmitContactForm", "Form", FormMethod.Post))
+					{
+
+						<div class="contact-page-form-container">
+
+							<input id="name" name="name" placeholder="Name" class="contact-page-form-input" type="text" value="@TempData["name"]" />
+
+
+							<input id="phone" name="phone" placeholder="Phone" class="contact-page-form-input" type="text" value="@TempData["phone"]" />
+
+
+							<input id="email" name="email" placeholder="Email address" class="contact-page-form-input" type="email" value="@TempData["email"]" />
+
+
+
+							<select id="option" name="option" style="font-style:normal" class="contact-page-form-input">
+
+								<option value="financial consulting one">Financial Consulting</option>
+								<option value="financial consulting two">Financial Consulting</option>
+								<option value="financial consulting three">Financial Consulting</option>
+
+							</select>
+
+							<button onclick="document.querySelector('.contact-page-form-container').scrollIntoView({behavior:'smooth'})" type="submit" class="hero-button">Submit</button>
+
+						</div>
+
+						<div style="color:red">
+
+							@if (resultEmail)
+							{
+								<p class="error-message-contact-form">Mata in din epost*</p>
+							}
+
+
+							@if (resultPhone)
+							{
+								<p class="error-message-contact-form">Mata in ditt telefonnummer*</p>
+							}
+
+							@if (resultName)
+							{
+								<p class="error-message-contact-form">Mata in ditt namn*</p>
+							}
+
+						</div>
+
+					}
+
+				}
+				else
+				{
+					<div class="contact-page-form-container error-message-contact-form">
+
+						<h2>Form sent!</h2>
+
+					</div>
+				}
+
+
+
+			</div>
+
+		</div>
+
+
+
+	</div>
+
+	
+	<div class="contact-banner-container">
+
+		@await Html.GetBlockGridHtmlAsync(Model, "contactFormBanner")
+
+	</div>
+
+</div>
+
+<script src="~/scripts/ScrollToView.js"></script>
+
+

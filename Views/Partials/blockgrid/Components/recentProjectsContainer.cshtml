@@ -1,0 +1,17 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+
+<div class="projects-main-container">
+
+
+    <div class="projects-header-container">
+        <p class="beige-mini-header">@Model.Content.Value("smallHeader")</p>
+        <p class="header-underneath-miniheader">@Model.Content.Value("bigHeader")</p>
+    </div>
+
+
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+
+</div>

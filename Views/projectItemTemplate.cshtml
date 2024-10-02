@@ -1,0 +1,73 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+
+@{
+	Layout = "mainTemplate.cshtml";
+
+	ViewBag.Title = Model.Value("pagetitle");
+
+}
+
+
+<div class="breadcrumb-main-container">
+
+    @await Html.PartialAsync("~/Views/Partials/Static/breadcrumb.cshtml")
+
+</div>
+
+
+
+<div class="project-item-main-container">
+
+	<div class="project-item-left-container">
+		<p class="project-date-time">
+			<i class="fa-regular fa-calendar"></i>
+			@Model.Value("dateTime")
+		</p>
+
+		<div class="project-item-main-content">
+			@Model.Value("mainContentPage")
+		</div>
+
+		
+		@if(Model.HasValue("contentTags"))
+		{
+		var tags = Model.Value<IEnumerable<string>>("contentTags");
+			<div class="project-item-tags-container">
+				<h4 class="header-color">Tags:</h4>
+
+				@foreach(var tag in tags)
+				{
+					<p class="header-color project-item-tags-items">@tag</p>
+				}
+			</div>
+		}
+
+			
+		
+		
+		
+	</div>
+
+
+
+	<div class="project-item-right-container">
+		   
+		    @await Html.PartialAsync("~/Views/Partials/Static/recentProjects.cshtml")
+			@await Html.PartialAsync("~/Views/Partials/Static/tags.cshtml")
+			@await Html.PartialAsync("~/Views/Partials/Static/howCanWeHelpYou.cshtml")
+
+	</div>
+
+</div>
+
+
+
+<div class="services-page-container-footer">   
+	<!--Need to create a partial here-->
+
+	@await Html.PartialAsync("~/Views/Partials/Static/letUsKnowPartial.cshtml")
+
+</div>

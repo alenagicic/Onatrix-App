@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+<div class="have-a-question-form">
+
+    <p class="have-a-question-header">Have a question ?</p>
+
+    <div class="have-a-question-input-container">
+        <input id="input-have-a-question-one" placeholder="name" type="text">
+        <input id="input-have-a-question-two" placeholder="email" type="text">
+    </div>
+
+    <textarea placeholder="question" id="textarea-have-a-question" name="comments" rows="4" cols="50" >
+    </textarea>
+
+    <button class="hero-button">Submit</button>
+
+</div>

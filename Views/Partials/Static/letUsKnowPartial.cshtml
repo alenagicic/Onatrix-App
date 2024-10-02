@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+@{
+    
+	var selection = Umbraco.ContentAtRoot().FirstOrDefault()
+    .ChildrenOfType("settingsPage")
+    .Where(x => x.IsVisible());
+
+}
+
+
+@foreach (var item in selection)
+{
+    <div class="let-us-know-container">
+
+    @{
+        var image = item.Value<MediaWithCrops>("letUsKnowImage");
+    }
+
+    <div class="let-us-know-image-container">
+        <img id="let-us-know-image" src="@image.MediaUrl()">
+    </div>
+
+
+    <div class="let-us-know-info-container">
+
+        <p class="header-underneath-miniheader">
+            @item.Value("letUsKnowHeader")
+        </p>
+
+        <p class="let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-solid fa-map-pin beige-color-text"></i> Office location
+        </p>
+
+        <p class="let-us-know-info-text-all">
+            &emsp;&nbsp;@item.Value("letUsKnowAddress")
+        </p>
+
+        <br>    
+
+        <p class="let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-solid fa-phone beige-color-text"></i> Phone number
+        </p>
+        
+        <i class="let-us-know-info-text-all">
+            &emsp;&nbsp;@item.Value("letUsKnowPhone")
+        </i>
+
+        <br> 
+
+        <p class="let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-regular fa-envelope beige-color-text"></i> E-mail address
+        </p>
+        <i class="let-us-know-info-text-all">
+            &emsp;&nbsp;@item.Value("letUsknowEmail")
+        </i>
+
+    </div>
+
+    </div>
+}
+

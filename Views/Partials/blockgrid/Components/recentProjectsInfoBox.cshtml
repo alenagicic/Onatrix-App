@@ -1,0 +1,18 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+@{
+    var image = Model.Content.Value<MediaWithCrops>("image");
+}
+
+<div class="projects-sub-container" style="background-image:url(@image.MediaUrl()); background-size:cover">
+
+    <div class="projects-sub-container-headers">
+
+        <p class="projects-big-header">@Model.Content.Value("bigHeader")</p>
+        <p class="projects-small-header">@Model.Content.Value("smallHeader")</p>
+
+    </div>
+
+</div>

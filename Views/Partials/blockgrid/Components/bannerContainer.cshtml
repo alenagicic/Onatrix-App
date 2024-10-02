@@ -1,0 +1,31 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+
+@{
+    var imageone = Model.Content.Value<MediaWithCrops>("imageOne");
+
+    var imagetwo = Model.Content.Value<MediaWithCrops>("imageTwo");
+
+    var imagethree = Model.Content.Value<MediaWithCrops>("imageThree");
+
+    var imagefour = Model.Content.Value<MediaWithCrops>("imageFour");
+
+    var imagefive = Model.Content.Value<MediaWithCrops>("imageFive");
+
+    var imagesix = Model.Content.Value<MediaWithCrops>("imageSix");
+}
+
+<div class="banner-container-main">
+
+    <img src="@imageone.MediaUrl()"/>
+    <img src="@imagetwo.MediaUrl()"/>
+    <img src="@imagethree.MediaUrl()"/>
+    <img src="@imagefour.MediaUrl()"/>
+    <img src="@imagefive.MediaUrl()"/>
+    <img src="@imagesix.MediaUrl()"/>
+
+    
+
+</div>

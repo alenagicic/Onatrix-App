@@ -1,0 +1,140 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+
+@{
+	Layout = "mainTemplate.cshtml";
+
+	ViewBag.Title = Model.Value("pagetitle");
+
+	var selection = Umbraco.Content(Guid.Parse("112f5591-11a9-4d37-b4d4-435a0a87655a"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible());
+
+
+
+
+    var itemsPage = 4;
+
+    if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+        currentPage = 1;
+
+    var totalItems = selection?.Count() ?? 0;
+    var pagedItems = selection.Skip((currentPage - 1) * itemsPage).Take(itemsPage);
+
+
+
+}
+
+
+<div class="breadcrumb-main-container">
+
+    @await Html.PartialAsync("~/Views/Partials/Static/breadcrumb.cshtml")
+
+</div>
+
+
+<div class="project-page-wrapper">
+
+	<div class="project-page-project">
+
+		@if (pagedItems != null)
+		{
+			@foreach (var item in pagedItems)
+			{
+
+                <a href="@item.Url()">
+
+                    <div class="project-page-items">
+                        @{
+                            var imageThumbnail = item.Value<MediaWithCrops>("thumbnailImage").MediaUrl();
+                        }
+
+
+                        <div class="project-thumb-img-container">
+                            
+                            <img id="project-thumb-img" src="@imageThumbnail">
+
+                        </div>
+
+                        <div class="project-thumb-info-container">
+                            <h3 class="header-color">
+                                @item.Name()
+                            </h3>						
+
+                            <p class="project-date-time">
+                                <i class="fa-regular fa-calendar"></i> @item.Value("dateTime")
+                            </p>
+                        
+                            <p class="main-content-components">
+                                @item.Value("thumbnailContent")
+                            </p>
+
+                            <h5 class="header-color project-page-readmore">	
+                                Read More  <i class="fa-solid fa-arrow-right"></i>
+                            </h5>
+
+                        </div>
+                    </div>
+
+                </a>
+			}
+		}
+			
+		
+		<div class="services-page-container-pagination">
+		@if (currentPage > 1)
+        {
+            <a href="?page=@(currentPage - 1)">Prev</a>
+        }
+        else 
+        {
+            <span>Prev</span>
+        }
+
+        @for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPage); i++)
+        {
+              if(currentPage != i)
+            {
+                <a href="?page=@i">@i</a>
+                
+            }else
+            {
+                <div class="project-pagination-current">
+                    <a href="?page=@i">@i</a>
+                </div>
+            }
+        }
+
+        @if (currentPage < Math.Ceiling((decimal)totalItems / itemsPage))
+        {
+            <a href="?page=@(currentPage + 1)">Next</a>
+        }
+        else 
+        {
+            <span>Next</span>
+        }
+		</div>
+
+	</div>
+
+	<div class="project-page-column-right">
+
+    	@await Html.PartialAsync("~/Views/Partials/Static/tags.cshtml")
+		@await Html.PartialAsync("~/Views/Partials/Static/howCanWeHelpYou.cshtml")
+
+	</div>
+
+</div>
+
+
+
+<div class="services-page-container-footer">   
+	<!--Need to create a partial here-->
+
+			@await Html.PartialAsync("~/Views/Partials/Static/letUsKnowPartial.cshtml")
+
+
+</div>

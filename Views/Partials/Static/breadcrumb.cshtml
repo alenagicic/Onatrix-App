@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{ 
+    
+    var selection = Model.Ancestors().ToArray(); 
+
+    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title}" : "hello";
+
+    var leftImage = Umbraco.Media(Guid.Parse("279eb3a4-c312-4560-ae4d-adf5d8e7122f"));
+
+    var rightImage = Umbraco.Media(Guid.Parse("bce16d77-f321-49d9-84e8-30141d517cd3"));
+
+}
+
+@if (selection?.Length > 0)
+{
+
+    <div class="breadcrumb-image-left">
+        <img src="@leftImage.Url()" >
+    </div>
+
+
+    <div class="breadcrumb">
+
+        <h1 style="text-align:center" class="header-underneath-miniheader">@pageTitle</h1>
+
+        <div class="breadcrumb-actual-breadcrumb">
+
+            @foreach (var item in selection.OrderBy(x => x.Level))
+            {
+                
+                    <a class="breadcrumb-links-generated" href="@item.Url(PublishedUrlProvider)">
+                        @item.Name
+                    </a> 
+                
+
+                <p style="font-size:0.7rem; font-weight:200; text-decoration:none; color:#4f5a56;">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </p>
+            }
+
+            <p class="breadcrumb-active">@Model.Name</p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="breadcrumb-image-right" >
+        <img src="@rightImage.Url()" >
+    </div>
+
+
+}

@@ -1,0 +1,169 @@
+﻿html {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height:24px;
+    color: #4f5a56;
+}
+
+input {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #4f5a56;
+}
+
+textarea {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #4f5a56;
+}
+
+select {
+    font-size: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #4f5a56;
+}
+
+
+a {
+    text-decoration:none;
+}
+
+
+// Content for entire page below
+
+
+.header-color {
+    color: #4f5a56;
+}
+
+.text-decoration-none {
+    text-decoration: none !important;
+}
+
+
+
+
+.beige-mini-header {
+    text-transform: uppercase;
+    color: #d9c3a9;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.header-underneath-miniheader {
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    color: #4f5a56;
+    margin-top:0rem;
+}
+
+.main-content-components {
+    font-size: 14px;
+    line-height:1.3rem;
+    color: #4f5a56;
+}
+
+.beige-color-text {
+    color: #ddcab4;
+}
+
+.bold-sixhundred{
+    font-weight:600;
+}
+
+
+
+
+
+// For Service box below
+
+.header-service-box {
+    color: #4f5a56;
+    font-weight:600;
+    text-decoration:none!important;
+    padding-left:1rem;
+}
+
+// Below infobox success story
+
+.successtory-infobox-font-header {
+    font-size: 5rem;
+    color: #d9c3a9;
+    font-weight: 600;
+    text-align: center;
+    line-height:0px;
+    margin-bottom:3rem;
+    margin-top:3rem;
+}
+
+.successtory-infobox-font-subheader {
+    color:whitesmoke;
+    text-align:center;
+    margin-top:0rem;
+}
+
+// Below Content for projects 
+
+.projects-big-header{
+    margin-left:1rem;
+    margin-bottom:0rem;
+}
+
+.projects-small-header{
+    margin-left:1rem;
+    font-size:0.7rem;
+    margin-top:0.2rem;
+}
+
+// Below content for about Form
+
+.about-form-request-header-text {
+    font-size: 1.3rem;
+    color: #f2eddc;
+    padding-left: 5%;
+    font-weight:600;
+}
+
+// Below content for How can we help
+
+.how-can-we-help-header {
+    color: #f2eddc;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight:600;
+    padding-top:1rem;
+}
+
+.how-can-we-help-sub-header {
+    color: whitesmoke;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    padding-left:0.5rem;
+    padding-right:0.5rem;
+    margin-top:0.2rem;
+    margin-bottom:1rem;
+}
+
+// Below content for Have A question
+
+.have-a-question-header {
+    color: #4f5a56;
+    font-size:1.2rem;
+    font-weight:750;
+}
+
+// Below content for Service PAGE
+
+.project-date-time {
+    color: #9c9ea6;
+    font-size: 0.8rem;
+}

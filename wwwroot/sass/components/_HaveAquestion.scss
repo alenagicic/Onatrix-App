@@ -1,0 +1,43 @@
+﻿
+
+.have-a-question-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+
+
+    .have-a-question-input-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        #input-have-a-question-one {
+            width: 48%;
+            height: 2.5rem;
+            border-radius: 0.2rem;
+            border: 1px solid #d8d8d8;
+            padding-left: 1rem;
+        }
+
+        #input-have-a-question-two {
+            width: 48%;
+            height: 2.5rem;
+            border-radius: 0.2rem;
+            border: 1px solid #d8d8d8;
+            padding-left: 1rem;
+        }
+    }
+
+    #textarea-have-a-question {
+        resize: none;
+        border-radius: 0.2rem;
+        border: 1px solid #d8d8d8;
+        height: 8rem;
+        padding-left: 1rem;
+        padding-top:0.6rem;
+    }
+}

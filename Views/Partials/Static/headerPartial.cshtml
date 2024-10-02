@@ -1,0 +1,91 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+<header class="header-container">
+
+    <div class="header-top">
+
+        <p class="header-top-span">
+            Klarabergsviadukten 90, 111 64 Stockholm
+        </p> 
+
+        <div class="header-top-link-container">
+
+            <a style="color:whitesmoke" href="https://www.facebook.com">
+                <i class="fa-brands fa-facebook-f header-top-link"></i>
+            </a>
+
+            <a style="color:whitesmoke" href="https://www.x.com">
+                <i class="fa-brands fa-twitter header-top-link"></i>
+            </a>
+
+            <a style="color:whitesmoke" href="https://www.linkedin.com">
+                <i class="fa-brands fa-linkedin-in header-top-link"></i>  
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="header-bottom">
+
+        <a href="/" class="containerOne">
+            <img id="image-logo" src="~/media/zuffze4w/logo.png">
+        </a>
+
+        <nav class="containerTwo">
+
+            @{ var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
+
+            @if (selection?.Length > 0)
+            {
+               
+                @foreach (var item in selection)
+                {
+                    if(item.Name.ToLower() != "settings")
+                    {
+                        <a class="@(item.IsAncestorOrSelf(Model) ? "linksNavActive" : "linksNav")" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                    }
+                }
+               
+            }
+            
+        </nav>
+
+        <div class="containerThree">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <i class="fa-solid fa-bars"></i>
+
+        <div class="containerDropDown">
+
+            @{ var selections = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray(); }
+
+            @if (selections?.Length > 0)
+            {
+               
+                @foreach (var item in selections)
+                {
+                    if(item.Name.ToLower() != "settings")
+                    {
+                        <div class="container-dropdown-item-container">
+                            <a class="@(item.IsAncestorOrSelf(Model) ? "linksNavActive" : "linksNav")" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        </div>
+                    }
+                }
+               
+            }
+
+        </div>
+
+    </div>
+
+</header>

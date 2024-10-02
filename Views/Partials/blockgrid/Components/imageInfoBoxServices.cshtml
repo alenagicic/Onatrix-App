@@ -1,0 +1,27 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+@{
+    var image = Model.Content.Value<MediaWithCrops>("imageInfoBox");
+}
+
+
+
+<div class="services-infobox-partial">
+
+    <p class="header-service-box">
+
+        @Model.Content.Value("headerInfoBox")
+
+    </p>
+
+    <img class="services-infobox-image" src="@image.MediaUrl()"/>
+        
+    <p class="main-content-components services-infobox-text">
+
+        @Model.Content.Value("textInfoBox")
+
+    </p>
+
+</div>

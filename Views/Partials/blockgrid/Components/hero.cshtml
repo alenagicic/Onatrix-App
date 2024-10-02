@@ -1,0 +1,43 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+
+
+    @{
+
+        var image = Model.Content.Value<MediaWithCrops>("image");
+            
+        if (image != null)
+        {
+            // <img src="@image.MediaUrl()" style="width:200px" alt="hello" />
+        }
+
+    }  
+
+
+
+<div class="hero-main-container" style="background-image:url(@image.MediaUrl()); background-size:cover;" >
+
+    <div class="hero-container-content">
+
+        <p class="hero-header">
+            @Model.Content.Value("header")
+        </p>
+        <p class="main-content-components">
+            @Model.Content.Value("mainContent")
+        </p>
+        <button class="hero-button">
+            @Model.Content.Value("buttonText")
+        </button>
+
+    </div>
+    
+
+</div>
+
+
+
+
+
+

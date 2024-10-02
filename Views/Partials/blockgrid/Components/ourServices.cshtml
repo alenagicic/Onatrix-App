@@ -1,0 +1,75 @@
+﻿@using Umbraco.Extensions
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.Models
+
+
+<div class="services-main-container">
+
+    <div class="services-header-container">
+        <p class="beige-mini-header">
+            @Model.Content.Value("smallHeader")
+        </p>
+
+        <p class="header-underneath-miniheader service-header-main-alignment">
+            @Model.Content.Value("bigHeader")
+        </p>
+    </div>
+
+    <div class="services-render-services-container">
+        
+        
+        @{
+            var selection = Umbraco.Content(Guid.Parse("5d2b9a88-d381-4f26-8f2a-76ef9a6247cb"))
+            .ChildrenOfType("serviceItemTemplate")
+            .Where(x => x.IsVisible()).ToList();
+
+            var CountList = selection.Count();
+        }
+
+        
+            @foreach (var item in selection.GetRange(0, 6))
+            {
+                
+                <a href="@item.Url()">
+                    <div class="services-infobox-partial">
+                        
+
+                        <div class="header-service-box-container">
+
+                            <p class="header-service-box">@item.Value("pageTitle")</p>
+
+                        </div>
+
+                        @{
+                            var imageThumbnail = item.Value<MediaWithCrops>("imageThumbnail");
+                        }
+                        
+                    
+                        <img class="services-infobox-image" src="@imageThumbnail.MediaUrl()"/>
+            
+
+
+                        <p class="main-content-components services-infobox-text">
+
+                            @item.Value("descriptionThumbnail")
+
+                        </p>
+
+                    </div>
+                </a>
+
+            }
+     
+
+
+        
+    </div>
+
+
+
+
+</div>
+
+
+
+

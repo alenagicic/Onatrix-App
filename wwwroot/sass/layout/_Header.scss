@@ -1,0 +1,203 @@
+﻿
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px -2px #4f5a5633;
+    position: relative;
+
+    .header-top {
+        background-color: #4f5a56;
+        color: whitesmoke;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-right: 10%;
+        align-items: center;
+        font-size: 0.8rem;
+
+        .header-top-span {
+        
+        }
+
+        @media screen and (max-width:620px){
+
+            .header-top.span{
+                font-size:0.6rem;
+            }
+        }
+
+        .header-top-link-container {
+            border-left: 1px solid #8d8d8d;
+            display: flex;
+
+            .header-top-link {
+                padding: 1rem;
+                border-right: 1px solid #8d8d8d;
+                cursor: pointer;
+            }
+
+            .header-top-link:hover {
+                font-weight: 600;
+            }
+        }
+    }
+
+
+
+    .header-bottom {
+        display: flex;
+        padding-left: 10%;
+        padding-right: 10%;
+        justify-content: space-between;
+        color: #4f5a56;
+
+        .containerOne {
+
+            #image-logo {
+                max-width: 100%;
+            }
+
+            width: 10rem;
+        }
+
+        .containerTwo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 4rem;
+            font-weight: 600;
+
+            .linksNav {
+                cursor: pointer;
+                text-decoration: none;
+                color: #4f5a56;
+            }
+
+            .linksNav:hover {
+                color: #808080;
+                text-decoration: underline;
+            }
+
+            .linksNavActive {
+                color: #c7b43e;
+                text-decoration: none;
+                cursor: default;
+            }
+        }
+
+        .containerThree {
+            width: 10rem;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+        }
+
+        .fa-bars {
+            display: none;
+        }
+
+        .containerDropDown {
+            display: none;
+        }
+
+        @media screen and (max-width: 920px) {
+
+            .containerTwo {
+                display: none;
+            }
+
+            .containerThree {
+                display: none;
+            }
+
+            .fa-bars {
+                font-size: 2rem;
+                align-self: center;
+                display: flex;
+                height: 5rem;
+                width: 12rem;
+                right: 1rem;
+                position: absolute;
+                justify-content: center;
+                align-items: center;
+                transition-duration: 0.1s;
+            }
+
+            .containerDropDown {
+                position: absolute;
+                width: 12rem;
+                right: 1rem;
+                background-color: white;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                font-size: 1.5rem;
+                top: 7.9rem;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                background-color: #4f5a56;
+                border-radius: 0.2rem;
+                align-items: center;
+                display: none;
+                opacity: 0;
+                transition-duration: 0.4s;
+
+                .container-dropdown-item-container {
+                    height: 2.5rem;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 1rem;
+                    width: 80%;
+                    cursor: pointer;
+                    transition-duration: 0.2s;
+
+
+                    a {
+                        color: whitesmoke;
+                    }
+                }
+
+                .container-dropdown-item-container:hover {
+                    background-color: #707f79;
+
+
+                    a {
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 620px) {
+
+            .fa-bars {
+                right: 0rem;
+                width:20%;
+            }
+
+            .containerDropDown {
+                right: 0rem;
+            }
+        }
+
+        @media screen and (max-width: 420px) {
+
+            .containerDropDown {
+                top: 9.4rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 620px) {
+
+        .header-top {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .header-bottom {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}

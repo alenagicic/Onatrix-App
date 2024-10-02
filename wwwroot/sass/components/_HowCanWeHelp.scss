@@ -1,0 +1,40 @@
+﻿
+
+
+.how-can-we-help-container {
+    all: unset;
+    background-color: #4f5955;
+    width: auto;
+    display: flex;
+    row-gap:1rem;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 0.2rem;
+    
+
+
+    .how-can-we-help-header {
+        all: unset;
+        font-size: 1.8rem;
+        margin-left: 1rem;
+        color: #f2eddc;
+        padding-top:1rem;
+    }
+
+    .how-can-we-help-sub-header {
+        all: unset;
+        margin-left: 1rem;
+        color: whitesmoke;
+        padding-right:1rem;
+    }
+
+
+    .how-can-we-help-input {
+        padding-left: 0.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: 2.5rem;
+        margin-bottom:2rem;
+    }
+}
+

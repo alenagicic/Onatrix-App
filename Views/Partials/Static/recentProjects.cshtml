@@ -1,0 +1,64 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+
+
+<div class="recent-project-container">
+
+    @{
+         var selection = Umbraco.Content(Guid.Parse("112f5591-11a9-4d37-b4d4-435a0a87655a"))
+        .ChildrenOfType("projectItemTemplate")
+        .Where(x => x.IsVisible()).ToList();
+
+
+        var lengthList = selection.Count();
+
+        // If count is 10
+        // 0 1 2 3 4 5 6 7 8 9
+        // 
+    }
+
+        <h2 class="header-color">Recent projects</h2>
+
+        @foreach (var item in selection.GetRange(lengthList - 4, 4))
+        {
+
+
+            <a href="@item.Url()">
+                <div class="recent-project-item">
+                    
+                    @{
+                        var imageThumbnail = item.Value<MediaWithCrops>("thumbnailImage");
+                    }
+
+                    <div class="recent-project-item-img">
+                        
+                        <img id="project-thumbnail-recent" src="@imageThumbnail.Url()">
+
+                    </div>
+                    
+
+                    <div class="recent-project-data">
+
+                        
+                        <h4 class="header-color recent-project-header-hover">@item.Name()</h4>
+                      
+
+                        <p style="font-size:1rem;" class="project-date-time">
+                            <i class="fa-regular fa-calendar"></i>
+                            @item.Value("dateTime")
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </a>
+
+          
+
+        }
+
+</div>

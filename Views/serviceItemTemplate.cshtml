@@ -1,0 +1,58 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+@{
+	Layout = "mainTemplate.cshtml";
+
+	ViewBag.Title = Model.Value("pagetitle");
+
+    var imageAbout = Model.Value<MediaWithCrops>("aboutUsImage");
+
+}
+
+<div  class="breadcrumb-main-container">
+
+		@await Html.PartialAsync("~/Views/Partials/Static/breadcrumb.cshtml")
+
+</div>
+
+
+
+<div class="service-item-main-container">
+
+    <div class="service-item-left-column">
+
+        <div class="service-about-container">
+            <p class="header-service-box">@Model.Value("aboutUsHeader")</p>
+            <img id="service-img-about" src="@imageAbout.MediaUrl()">
+            <p class="main-content-components">@Model.Value("aboutUsContent")</p>
+        </div>
+
+        <div class="service-can-help">   
+            @await Html.PartialAsync("~/Views/Partials/Static/howCanWeHelpYou.cshtml")
+        </div>
+
+    </div>
+
+	    
+	
+    <div class="service-item-right-column">
+        @Model.Value("pageContent")
+    </div>
+
+
+</div>
+
+    @await Html.PartialAsync("~/Views/Partials/Static/haveAquestion.cshtml")
+
+
+<div class="services-page-container-footer">   
+        <!--Need to create a partial here-->
+
+        @await Html.PartialAsync("~/Views/Partials/Static/letUsKnowPartial.cshtml")
+
+        
+</div>
+

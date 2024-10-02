@@ -1,0 +1,201 @@
+﻿
+
+.about-page-main-wrapper {
+    min-height: 25rem;
+    margin-top: 3rem;
+
+
+    .about-container-one {
+        display: flex;
+        column-gap: 2rem;
+        padding-bottom: 8rem;
+
+
+        #image-about-main{
+            width:auto;
+        }
+
+        @media screen and (max-width:420px){
+            #image-about-main{
+                width:100%;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1080px) {
+
+        .about-container-one {
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+    }
+
+
+    @media screen and (max-width: 920px) {
+
+        .about-container-one {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .about-container-two {
+        height: 30rem;
+        background-color: #f7f7f7;
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+
+
+        .about-two-inner-first {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .about-two-inner-second {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+
+            #about-image-two {
+                height: 100%;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1080px) {
+        .about-container-two {
+            padding-left: 10%;
+        }
+    }
+
+    @media screen and (max-width: 920px) {
+
+        .about-container-two {
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 2rem;
+            height: auto;
+            text-align: center;
+
+            .about-two-inner-second {
+                width: 90%;
+                justify-content: center;
+
+                #about-image-two {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .about-container-three {
+        min-height: 5rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        .about-container-three-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .about-container-three-header-inner {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        .about-container-three-first {
+            display: flex;
+            column-gap: 1rem;
+            padding-bottom: 1rem;
+            justify-content: center;
+            line-height: 10px;
+
+
+            .about-ID {
+                width: 100%;
+                border: 1px solid #ececec;
+
+                .about-ID-img {
+                    width: 100%;
+                }
+
+                .about-ID-info {
+                    padding: 1rem;
+                }
+            }
+        }
+
+        .about-container-three-second {
+            padding-top: 1rem;
+            display: flex;
+            column-gap: 1rem;
+            justify-content: center;
+            line-height: 10px;
+
+
+
+            .about-ID {
+                border: 1px solid #ececec;
+                width: 100%;
+
+                .about-ID-img {
+                    width: 100%;
+                }
+
+                .about-ID-info {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1080px) {
+        .about-container-three {
+            .about-container-three-first {
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            .about-container-three-second {
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+    }
+
+    @media screen and (max-width: 920px) {
+
+        .about-container-three {
+
+
+            .about-container-three-first {
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 2rem;
+                height: auto;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+
+            .about-container-three-second {
+                flex-wrap: wrap;
+                justify-content: center;
+                row-gap: 2rem;
+                height: auto;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+    }
+}

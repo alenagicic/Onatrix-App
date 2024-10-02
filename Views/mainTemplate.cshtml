@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+@{
+	Layout = null;
+}
+
+<html>
+	<head>
+		<title>Min hemsida</title>
+		<link rel="stylesheet" href="~/sass/Style.min.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	</head>
+
+	<body>
+
+		<header>
+			@await Html.PartialAsync("~/Views/Partials/Static/headerPartial.cshtml")
+		</header>
+
+		<main class="main-template-main-body">
+			@RenderBody()
+		</main>
+				
+			
+		<footer>
+			@await Html.PartialAsync("~/Views/Partials/Static/footerPartial.cshtml")
+		</footer>
+
+
+
+		<script src="https://kit.fontawesome.com/3742703543.js" crossorigin="anonymous"></script>
+		<script src="~/scripts/GeneralScript.js"></script>
+	</body>
+
+</html>

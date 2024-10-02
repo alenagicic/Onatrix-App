@@ -1,0 +1,165 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models
+
+
+@{
+	Layout = "mainTemplate.cshtml";
+
+	ViewBag.Title = Model.Value("pagetitle");
+
+}
+
+<div class="breadcrumb-main-container">
+
+    @await Html.PartialAsync("~/Views/Partials/Static/breadcrumb.cshtml")
+
+</div>
+
+<div class="about-page-main-wrapper">
+
+	<div class="about-container-one">
+		
+		<div style="font-style:italic; font-size:1.1rem;">
+
+			@{
+				var imageMain = Model.Value<MediaWithCrops>("imageFirstContainer");
+			}
+
+			<img id="image-about-main" src="@imageMain.MediaUrl()">
+
+			<p>@Model.Value("signatureFirstContainer")</p>
+
+		</div>
+
+		<div>
+			@Model.Value("mainContentFirstContainer")
+		</div>
+		
+		
+	</div>
+
+
+	<div class="about-container-two">
+
+		<div class="about-two-inner-first">
+
+			<p class="beige-mini-header">@Model.Value("smallHeader")</p>
+			<p class="header-underneath-miniheader">@Model.Value("bigHeader")</p>
+			<i style="color:#999999">@Model.Value("mainText")</i>
+
+			<div style="color:black; font-size:0.9rem; margin-top:1rem;">
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+
+			<p style="color:black; font-size:0.9rem;">@Model.Value("namePerson")</p>
+			<i style="color:black">@Model.Value("workplace")</i>
+			
+		</div>
+
+		@{
+			var imageSecondInner = Model.Value<MediaWithCrops>("imageMain");
+		}
+
+		<div class="about-two-inner-second">
+			<img id="about-image-two" src="@imageSecondInner.MediaUrl()">
+		</div>
+
+	</div>
+
+
+	<div class="about-container-three">
+
+		<div class="about-container-three-header">
+			
+			<div class="about-container-three-header-inner">
+
+				<p class="beige-mini-header">
+					@Model.Value("smallHeaderThird")
+				</p>
+
+				<p class="header-underneath-miniheader">
+					@Model.Value("bigHeaderThird")
+				</p>
+
+			</div>
+		
+
+		</div>
+
+		@{
+			var selection = Umbraco.Content(Guid.Parse("347dbc03-de3c-46a4-b779-12a5b12ad24a"))
+			.ChildrenOfType("aboutItemTemplate")
+			.Where(x => x.IsVisible()).ToList();
+
+			var CountList = selection.Count();
+		}			
+
+		<div class="about-container-three-first">
+        
+			@foreach (var item in selection.GetRange(0, 3))
+			{
+				var imageUrl = item.Value<MediaWithCrops>("imagePerson");
+				
+				<div class="about-ID">
+
+					<img class="about-ID-img" src="@imageUrl.MediaUrl()">
+
+					<div class="about-ID-info">
+
+						<h3 class="header-service-box" href="@item.Url()">@item.Name()</h3>
+						<p style="padding-left:1rem;" class="project-date-time">@item.Value("jobTitle")</p>
+						
+					</div>
+
+				</div>
+			}
+		
+		
+		</div>
+
+		<div class="about-container-three-second">
+
+			@foreach (var item in selection.GetRange(3, 4))
+			{
+
+				var imageUrl = item.Value<MediaWithCrops>("imagePerson");
+
+				<div class="about-ID">
+					
+					<img class="about-ID-img" src="@imageUrl.MediaUrl()">
+					
+					<div class="about-ID-info">
+
+						<h3 class="header-service-box" href="@item.Url()">@item.Name()</h3>
+						<p style="padding-left:1rem;" class="project-date-time">@item.Value("jobTitle")</p>
+						
+					</div>
+			
+				</div>
+			}
+
+		</div>
+
+
+	</div>
+
+
+</div>
+
+
+
+
+<div class="services-page-container-footer">   
+	<!--Need to create a partial here-->
+
+	@await Html.PartialAsync("~/Views/Partials/Static/letUsKnowPartial.cshtml")
+
+</div>
+
+

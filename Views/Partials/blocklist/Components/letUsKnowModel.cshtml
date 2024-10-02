@@ -1,0 +1,52 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models
+
+
+@{
+
+    var image = Model.Content.Value<MediaWithCrops>("image");
+
+}
+
+
+
+
+<div class="let-us-know-container">
+
+    <div class="let-us-know-image-container">
+        <img id="let-us-know-image" src="@image.MediaUrl()">
+    </div>
+
+
+    <div class="let-us-know-info-container">
+
+        <p class="header-underneath-miniheader">@Model.Content.Value("header")</p>
+        <p class="main-content-components let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-solid fa-map-pin beige-color-text"></i> Office location
+        </p>
+        <p class="main-content-components let-us-know-info-text-all">
+            &emsp;&nbsp;@Model.Content.Value("address")
+        </p>
+
+        <br>    
+
+        <p class="main-content-components let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-solid fa-phone beige-color-text"></i> Phone number
+        </p>
+        <i class="main-content-components let-us-know-info-text-all">
+            &emsp;&nbsp;@Model.Content.Value("phone")
+        </i>
+
+        <br> 
+
+        <p class="main-content-components let-us-know-info-text-all bold-sixhundred">
+            <i class="fa-regular fa-envelope beige-color-text"></i> E-mail address
+        </p>
+        <i class="main-content-components let-us-know-info-text-all">
+            &emsp;&nbsp;@Model.Content.Value("email")
+        </i>
+
+    </div>
+
+</div>
